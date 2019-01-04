@@ -7,16 +7,8 @@ import Router from 'next/router';
 
 
 const Index = () => {
-  // Array destructuring might be breaking now.sh?
-  // const [boards, setBoards] = useState([]);
-  const boardsHooks = useState([]);
-  const boards = boardsHooks[0];
-  const setBoards = boardsHooks[1];
-
-  // const [selectedBoard, setSelectedBoard] = useState();
-  const selectedBoardHooks = useState();
-  const selectedBoard = selectedBoardHooks[0];
-  const setSelectedBoard = selectedBoardHooks[1];
+  const [boards, setBoards] = useState([]);
+  const [selectedBoard, setSelectedBoard] = useState();
   
   const fetchBoards = async () => {
     axios.get('/api/boards', {
@@ -39,10 +31,10 @@ const Index = () => {
         setSelectedBoard(e.target.value);
     }}>
       {
-        boards.length ? boards.map(board => 
+        boards.map(board => 
           <option key={board.id} value={board.id} >
             {board.name}
-          </option>) : null
+          </option>)
       }
     </select>
 
