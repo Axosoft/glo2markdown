@@ -13,7 +13,6 @@ const Index = () => {
     const result = await axios.get('/api/boards', {
       withCredentials: true
     });
-    console.log("Result", result);
     setBoards(result.data);
     setSelectedBoard(result.data[0].id);
   }
@@ -23,7 +22,7 @@ const Index = () => {
   }, []);
   return (
   <div>
-    <p>TEST</p>
+    <p>Boards:</p>
     <select onChange={(e) => {
         setSelectedBoard(e.target.value);
     }}>
