@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
+import Router from 'next/router';
 
 
 
@@ -10,11 +11,14 @@ const Index = () => {
   const [selectedBoard, setSelectedBoard] = useState();
   
   const fetchBoards = async () => {
-    const result = await axios.get('/api/boards', {
+    axios.get('/api/boards', {
       withCredentials: true
+    }).then(result => {
+      setBoards(result.data);
+      setSelectedBoard(result.data[0].id);
+    }).catch(err => {
+      Router.push('/auth/login');
     });
-    setBoards(result.data);
-    setSelectedBoard(result.data[0].id);
   }
 
   useEffect(() => {
