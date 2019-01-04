@@ -4,7 +4,13 @@
     { "src": "package.json", "use": "@now/next" }
   ],
   "env": {
-    "CLIENT_SECRET":"@client-secret"
+    "AUTHORIZATION_URL": "https://devapp.gitkraken.com/oauth/authorize",
+    "TOKEN_URL": "https://devapi.gitkraken.com/oauth/access_token",
+    "CLIENT_ID": "@glo2markdown-client-id",
+    "CLIENT_SECRET":"@cliglo2markdown-ent-secret",
+    "CALLBACK_URL": "https://glo2markdown.now.sh/auth/callback",
+    "SESSION_SECRET": "@glo2markdown-session-secret",
+    "API_URL": "https://devgloapi.gitkraken.com/api/glo/v2"
   },
   "alias": "https://glo2markdown.now.sh"
 }
