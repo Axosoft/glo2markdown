@@ -5,7 +5,12 @@ import ReactMarkdown from 'react-markdown';
 
 export default withRouter((props) => {
 
-  const [board, setBoard] = useState('');
+  // Array destructuring might be breaking now.sh?
+  // const [board, setBoard] = useState('');
+  const boardHooks = useState('');
+  const board = boardHooks[0];
+  const setBoard = boardHooks[1];
+  
   
   const fetchBoard = async () => {
     axios.get(`/api/boards/${props.router.query.id}`, {
