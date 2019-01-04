@@ -1,0 +1,30 @@
+{
+  "name": "@axosoft/glo-board-markdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --inspect server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "next": "^7.0.2",
+    "passport": "^0.4.0",
+    "passport-oauth2": "^1.4.0",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-markdown": "^4.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

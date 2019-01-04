@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@now/next" }
+  ],
+  "env": {
+    "CLIENT_SECRET":"@client-secret"
+  },
+  "alias": "https://glo2markdown.now.sh"
+}
