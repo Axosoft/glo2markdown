@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
+import Head from 'next/head';
 
 const Index = () => {
   const [boards, setBoards] = useState([]);
@@ -23,7 +24,27 @@ const Index = () => {
   }, []);
   return (
   <div>
-    <p>Boards:</p>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charSet="utf-8" />
+    </Head>
+    <style jsx global>{`
+      body { 
+        background: #1b2126;
+        font: 10px Arial;
+        color: #fff;
+      }
+    `}</style>
+    <h1 style={
+      {
+        fontSize:'2.5rem'
+      }
+    }>Select a Board</h1>
+    <h2 style={
+      {
+        fontSize:'1.5rem'
+      }
+    }>We'll render it to markdown</h2>
     <select onChange={(e) => {
         setSelectedBoard(e.target.value);
     }}>
