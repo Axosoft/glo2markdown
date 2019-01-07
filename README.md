@@ -25,6 +25,10 @@ After obtaining an OAuth token for the user, the app makes API calls to get a li
     * Replace Client ID/Secret with your OAuth app info
     * Replace the session secret with a string of your choosing
 4. `npm run dev` or `yarn dev`
+    * This will run a dev server on port 8080
+    * Debugging available on port 9229
+    * Client should have hot reloading
+    * Server should automatically restart when you change other files
 
 ### Using the app
 
