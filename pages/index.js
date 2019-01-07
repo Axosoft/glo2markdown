@@ -3,9 +3,6 @@ import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
 
-
-
-
 const Index = () => {
   const [boards, setBoards] = useState([]);
   const [selectedBoard, setSelectedBoard] = useState();
@@ -44,4 +41,4 @@ const Index = () => {
   </div>
 )}
 
-export default Index
+export default Index;
