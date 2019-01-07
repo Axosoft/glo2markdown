@@ -26,6 +26,13 @@ After obtaining an OAuth token for the user, the app makes API calls to get a li
     * Replace the session secret with a string of your choosing
 4. `npm run dev` or `yarn dev`
 
+### Using the app
+
+1. The index page `/` will display your list of boards and allow you to select from a dropdown.
+    * If you aren't logged in, it will redirect you to `/auth/login`
+2. Once you've selected a board, you are directed to `/board?id={BOARD_ID}`
+    * This page will load the columns and cards, and display your board in a markdown format
+
 ### Notes
 
 Sessions are stored in the in-memory implementation which is not meant for production! For a production app, please update and secure the session store as well as the user store. [Compatible session stores for express-session](https://www.npmjs.com/package/express-session#compatible-session-stores)
