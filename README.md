@@ -1,7 +1,5 @@
 # Glo2Markdown
 
-This is an Next.js app demonstrating how to use GitKraken Glo's OAuth and API. Users login with OAuth, pick a board, and it is converted to Markdown. While we chose to use Next.js for simplicity, you can use any appropriate tech stack to build out Glo OAuth/API apps.
-
 ## OAuth
 
 GitKraken Glo uses OAuth to allow developers to create apps that access users' data on their behalf.
@@ -31,3 +29,5 @@ After obtaining an OAuth token for the user, the app makes API calls to get a li
 ### Notes
 
 Sessions are stored in the in-memory implementation which is not meant for production! For a production app, please update and secure the session store as well as the user store. [Compatible session stores for express-session](https://www.npmjs.com/package/express-session#compatible-session-stores)
+
+While we chose to use Next.js for simplicity, you can use any appropriate tech stack to build out Glo OAuth/API apps.
