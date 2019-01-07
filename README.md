@@ -39,6 +39,6 @@ After obtaining an OAuth token for the user, the app makes API calls to get a li
 
 ### Notes
 
-Sessions are stored in the in-memory implementation which is not meant for production! For a production app, please update and secure the session store as well as the user store. [Compatible session stores for express-session](https://www.npmjs.com/package/express-session#compatible-session-stores)
+* Sessions are stored in the in-memory implementation which is not meant for production! For a production app, please update and secure the session store as well as the user store. [Compatible session stores for express-session](https://www.npmjs.com/package/express-session#compatible-session-stores)
 
-While we chose to use Next.js for simplicity, you can use any appropriate tech stack to build out Glo OAuth/API apps.
+* While we chose to use Next.js for simplicity, you can use any appropriate tech stack to build out Glo OAuth/API apps.
