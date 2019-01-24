@@ -80,7 +80,6 @@ app.prepare()
   });
 
   server.get('/api/boards', async (req, res, next) => {
-    console.log("User", req.user);
     if (!req.user){
       res.sendStatus(401);
       return;

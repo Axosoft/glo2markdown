@@ -9,7 +9,7 @@ module.exports = (board, cards) => {
 
     for (let card of columnCards){
       markdown += `### ${card.name} \n`
-      if (card.members.length){
+      if (card.members && card.members.length){
         markdown += `#### Assignees \n`
         for (let member of card.members){
           const memberInfo = board.members.find((boardMem) => member.id === boardMem.id);
@@ -19,7 +19,7 @@ module.exports = (board, cards) => {
         }
       }
 
-      if (card.labels.length){
+      if (card.labels && card.labels.length){
         markdown += `#### Labels \n`
         for (let label of card.labels){
           const labelInfo = board.labels.find((boardLabel) => label.id === boardLabel.id);

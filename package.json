@@ -2,7 +2,7 @@
   "name": "@axosoft/glo-board-markdown",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon --inspect server.js",
     "build": "next build",
@@ -20,8 +20,8 @@
     "next": "^7.0.2",
     "passport": "^0.4.0",
     "passport-oauth2": "^1.4.0",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
     "react-markdown": "^4.0.6"
   },
   "devDependencies": {
@@ -29,6 +29,10 @@
     "nodemon": "^1.18.9"
   },
   "nodemonConfig": {
-    "ignore": ["pages/*", "node_modules/*", ".next/*"]
+    "ignore": [
+      "pages/*",
+      "node_modules/*",
+      ".next/*"
+    ]
   }
 }
