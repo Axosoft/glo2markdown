@@ -3,8 +3,8 @@
 ## OAuth
 
 GitKraken Glo uses OAuth to allow developers to create apps that access users' data on their behalf.
- More details on our OAuth system can be [found here](https://support.gitkraken.com/oauth/overview) TODO: Update this url
-
+ More details on our OAuth system can be [found here](https://support.gitkraken.com/developers/oauth/)
+ 
 ## API Calls
 
 After obtaining an OAuth token for the user, the app makes API calls to get a list of their boards, and then gets details for the selected board. For more information on the Glo API, you can read up on our [API Docs](https://gloapi.gitkraken.com/v1/docs/)
