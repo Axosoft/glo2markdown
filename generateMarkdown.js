@@ -3,18 +3,25 @@ module.exports = (board, cards) => {
 
   markdown += `# ${board.name} \n`;
 
-  for(let column of board.columns) {
+  for(let i = 0; i < board.columns.length; i++) {
+    const column = board.columns[i]
     markdown += `## ${column.name} \n`;
-    const columnCards = cards.filter(card => column.id === card.column_id);
+    const columnCards = cards[i];
 
     for (let card of columnCards){
       markdown += `### ${card.name} \n`
-      if (card.members && card.members.length){
+
+      if (card.description && card.description.text !== '\n') {
+        markdown += `#### Description \n`;
+        markdown += `${card.description.text}`;
+      }
+
+      if (card.assignees && card.assignees.length){
         markdown += `#### Assignees \n`
-        for (let member of card.members){
-          const memberInfo = board.members.find((boardMem) => member.id === boardMem.id);
-          if (memberInfo){
-            markdown += `* ${memberInfo.name} \n`
+        for (let assignee of card.assignees){
+          const assigneeInfo = board.members.find((boardMem) => assignee.id === boardMem.id);
+          if (assigneeInfo){
+            markdown += `* ${assigneeInfo.username} \n`
           }
         }
       }

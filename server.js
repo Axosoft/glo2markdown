@@ -1,11 +1,11 @@
-const express = require('express')
-const session = require('express-session');
-const next = require('next')
-const passport = require('passport');
-const OAuth2Strategy = require('passport-oauth2');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const axios = require('axios');
+const express = require('express')
+const GloSDK = require('@axosoft/glo-sdk');
+const next = require('next')
+const OAuth2Strategy = require('passport-oauth2');
+const passport = require('passport');
+const session = require('express-session');
 
 const generateMarkdown = require('./generateMarkdown');
 
@@ -85,17 +85,14 @@ app.prepare()
       return;
     }
     
-    axios.get(`${process.env.API_URL}/boards`, {
-      headers: {
-        "Authorization": req.user,
-        "Content-Type": "application/json"
-      }
-    }).then(({data: boards}) => {
-      res.send(boards);
-    }).catch(err => {
-      console.error(err);
-      res.sendStatus(500);
-    })
+    GloSDK(req.user).boards.getAll()
+      .then((boards) => {
+        res.send(boards);
+      })
+      .catch(err => {
+        console.error(err);
+        res.sendStatus(500);
+      });
   });
 
   server.get('/api/boards/:id', async (req, res, next) => {
@@ -103,26 +100,16 @@ app.prepare()
       res.sendStatus(401);
       return;
     }
-    Promise.all(
-      [
-        axios.get(`${process.env.API_URL}/boards/${req.params.id}/cards?fields=id,name,board_id,column_id,members,labels,description`, {
-          headers: {
-            "Authorization": req.user,
-            "Content-Type": "application/json"
-          }
-        }),
-        axios.get(`${process.env.API_URL}/boards/${req.params.id}?fields=id,name,columns,members,labels`, {
-          headers: {
-            "Authorization": req.user,
-            "Content-Type": "application/json"
-          }
-        })
-    ]).then(([{ data: cards },{ data: board }]) => {
-      res.send(generateMarkdown(board,cards));
-    }).catch(err => {
-      console.error(err);
-      res.sendStatus(500);
-    })
+    const board = await GloSDK(req.user).boards.get(req.params.id, {
+      fields: ['name', 'columns', 'members', 'labels']
+    });
+
+    const columnCards = await Promise.all(board.columns.map(column => GloSDK(req.user).boards.columns.getCards(req.params.id, column.id, {
+      per_page: 1000,
+      fields: ['assignees', "labels", "due_date", "description", "name"]
+    })));
+
+    res.send(generateMarkdown(board,columnCards));
   });
 
   server.get('*', (req, res) => {
