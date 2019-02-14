@@ -2,13 +2,12 @@
   "version": 1,
   "name": "glo2markdown",
   "env": {
-    "AUTHORIZATION_URL": "https://stagingapp.gitkraken.com/oauth/authorize",
-    "TOKEN_URL": "https://stagingapi.gitkraken.com/oauth/access_token",
+    "AUTHORIZATION_URL": "https://app.gitkraken.com/oauth/authorize",
+    "TOKEN_URL": "https://api.gitkraken.com/oauth/access_token",
     "CLIENT_ID": "@glo2markdown-client-id",
     "CLIENT_SECRET":"@glo2markdown-client-secret",
     "CALLBACK_URL": "https://glo2markdown.now.sh/auth/callback",
-    "SESSION_SECRET": "@glo2markdown-session-secret",
-    "API_URL": "https://staginggloapi.gitkraken.com/v1/glo"
+    "SESSION_SECRET": "@glo2markdown-session-secret"
   },
   "alias": "https://glo2markdown.now.sh",
   "features": { "cloud": "v1" }
